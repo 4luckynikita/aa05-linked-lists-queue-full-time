@@ -56,7 +56,11 @@ class SinglyLinkedList {
 
     removeFromHead() {
         // Remove node at head
-
+        if(!this.head) return;
+        let oldHead = this.head;
+        this.head = oldHead.next;
+        this.length--;
+        return oldHead;
         // Your code here
 
         // Write your hypothesis on the time complexity of this method here
@@ -64,6 +68,23 @@ class SinglyLinkedList {
 
     removeFromTail() {
         // Remove node at tail
+        if(!this.head) return;
+        if(!this.head.next) {
+            this.length--;
+            let oldHead = this.head;
+            this.head = null;
+            return oldHead;
+        }
+
+        let curr = this.head;
+        while (curr.next.next) {
+            curr = curr.next;
+        }
+        let oldTail = curr.next;
+        curr.next = null;
+        this.length--;
+        return oldTail;
+
 
         // Your code here
 
