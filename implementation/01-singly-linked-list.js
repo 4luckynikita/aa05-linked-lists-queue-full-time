@@ -14,8 +14,18 @@ class SinglyLinkedList {
 
     addToHead(val) {
         // Add node of val to head of linked list
+        if (this.head === null) {
+            this.length++;
+            this.head = new SinglyLinkedNode(val);
+            return this;
+        }
 
-        // Your code here 
+        let newHead = new SinglyLinkedNode(val);
+        newHead.next = this.head;
+        this.head = newHead;
+        this.length++;
+        return this;
+
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -24,20 +34,22 @@ class SinglyLinkedList {
         // There are bugs in this method! Fix them!!!
 
         // Add node of val to tail of linked list
-        let newNode = new SinglyLinkedNode(data);
+        let newNode = new SinglyLinkedNode(val);
 
-        if (!head) {
-            head = newNode;
-            return head;
+        if (!this.head) {
+            this.head = newNode;
+            this.length++;
+            return this;
         }
 
-        let curr = head;
-        while (curr) {
-            curr = current.next;
+        let curr = this.head;
+        while (curr.next) {
+            curr = curr.next;
         }
         curr.next = newNode;
+        this.length++;
 
-        return head;
+        return this;
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -45,7 +57,7 @@ class SinglyLinkedList {
     removeFromHead() {
         // Remove node at head
 
-        // Your code here 
+        // Your code here
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -53,7 +65,7 @@ class SinglyLinkedList {
     removeFromTail() {
         // Remove node at tail
 
-        // Your code here 
+        // Your code here
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -61,7 +73,7 @@ class SinglyLinkedList {
     peekAtHead() {
         // Return the value of head node
 
-        // Your code here 
+        // Your code here
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -69,7 +81,7 @@ class SinglyLinkedList {
     print() {
         // Print out the linked list
 
-        // Your code here 
+        // Your code here
 
         // Write your hypothesis on the time complexity of this method here
     }
